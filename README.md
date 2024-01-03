@@ -17,36 +17,13 @@ pip install -r requirements.txt
 **NOTE**: You will need **OPENAI KEY** if you want to obtain the annotations yourself.
 
 
-## Download Datasets from Huggingface
-```bash
-python download_dataset.py
-```
-
-## Generate UCPs Dataset (Optional)
-```bash
-python generate_annotations.py \
---task program \
---dataset gsm8k \
---model gpt-4-1106-preview \
---openai_key <OPENAI KEY> \
-```
-
-## Convert UCPs to HF Dataset (Optional)
+## Convert UCPs to HF Dataset 
 ```bash
 python convert_to_dataset.py \
---dataset_name gsm8k \
 --synthetic_data_path gsm8k_program \
---output_data_path gsm8k_ucp_test \
+--output_data_path gsm8k_ucp \
 ```
 
-## Generate Classification (Optional)
-```bash
-python generate_annotations.py \
---task classification \
---dataset gsm8k \
---model gpt-3.5-turbo \
---openai_key <OPENAI KEY> \
-```
 
 ## Finetune with UCPs
 ```bash
@@ -58,10 +35,31 @@ accelerate launch finetune.py \
 --hf_auth_token <AUTH TOKEN> \
 ```
 
+
 ## Evaluation
 ```bash
 accelerate launch evaluate.py \
---run saved/20231024-180753_CodeLlama-7b-hf_-1_gsm8k_pal \
+--run saved/<Saved Model Directory> \
+```
+
+
+## (Optional)
+### Generate UCPs Dataset
+```bash
+python generate_annotations.py \
+--task program \
+--dataset gsm8k \
+--model gpt-4-1106-preview \
+--openai_key <OPENAI KEY> \
+```
+
+### Generate Classification
+```bash
+python generate_annotations.py \
+--task classification \
+--dataset gsm8k \
+--model gpt-3.5-turbo \
+--openai_key <OPENAI KEY> \
 ```
 
 
