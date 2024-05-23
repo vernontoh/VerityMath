@@ -1,4 +1,3 @@
-
 UNIT_CONSISTENCY_SYSTEM_PROMPT = "You are an experienced professional skilled in using python programs to solve math problems and enhancing code robustness through the strategic implementation of unit counters and assert statements to ensure flawless unit-level consistency checks. You will only write code blocks."
 
 
@@ -143,18 +142,16 @@ def solution():
 '''.lstrip()
 
 
-UNIT_CONSISTENCY_QUESTION_PROMPT = '''
+UNIT_CONSISTENCY_QUESTION_PROMPT = """
 Question: {question}
 
 Python solution:
-'''.lstrip()
-
-
+""".lstrip()
 
 
 CLASSIFICATION_SYSTEM_MESSAGE = "Create a coherent explanation for the importance of performing unit consistency checks in various mathematical problems and identify whether a question requires verification of unit consistency. Be as detailed as possible and write your explanation in 1 paragraph and end with Answer: Yes / No."
 
-CLASSIFICATION_FEW_SHOT_PROMPT = '''
+CLASSIFICATION_FEW_SHOT_PROMPT = """
 Question: In ten years, Samantha will be three times as old as Alex is today. If Alex is currently 14 years old, how old is Samantha now? 
 
 Explanation: 
@@ -198,4 +195,4 @@ In this problem, a unit consistency check is required to ensure the accuracy of 
 Question: {question}
 
 Explanation:
-'''.lstrip()
+""".lstrip()

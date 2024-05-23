@@ -12,6 +12,8 @@ Official repo for "[VerityMath: Advancing Mathematical Reasoning by Self-Verific
 ```bash
 git clone https://github.com/vernontoh/VerityMath
 cd VerityMath
+conda create -n verity python=3.10 -y
+conda activate verity
 pip install -r requirements.txt
 ```
 **NOTE**: You will need **OPENAI KEY** if you want to obtain the annotations yourself.
