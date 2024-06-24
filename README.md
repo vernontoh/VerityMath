@@ -41,6 +41,7 @@ accelerate launch finetune.py \
 ## Evaluation
 ```bash
 accelerate launch evaluate.py \
+--hf_auth_token <AUTH TOKEN> \
 --run saved/<Saved Model Directory> \
 ```
 

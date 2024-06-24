@@ -21,14 +21,8 @@ from transformers import (
 
 from peft import (
     PeftModel,
-    LoraConfig,
-    TaskType,
-    get_peft_model,
     prepare_model_for_kbit_training,
 )
-
-
-AUTH_TOKEN = "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"
 
 logger = get_logger(__name__)
 
@@ -36,6 +30,13 @@ logger = get_logger(__name__)
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Test Evaluation for Math Problem Solving"
+    )
+
+    parser.add_argument(
+        "--hf_auth_token",
+        type=str,
+        required=True,
+        help="Huggingface authorization token",
     )
 
     parser.add_argument(
@@ -143,7 +144,7 @@ def main():
         quantization_config=bnb_config,
         pad_token_id=tokenizer.eos_token_id,  # https://github.com/microsoft/DeepSpeedExamples/issues/490
         cache_dir="models",
-        use_auth_token=AUTH_TOKEN,
+        use_auth_token=args.hf_auth_token,
     )
 
     model = prepare_model_for_kbit_training(model)
